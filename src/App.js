@@ -2,7 +2,15 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App"></div>
+    <div className={`App`}>
+      <h1>Fancy Buttons!</h1>
+      <section>
+        <AngryButton />
+        <CounterButton />
+        <LightSwitchButton />
+        <TextRepeaterButton />
+      </section>
+    </div>
   );
 }
 
