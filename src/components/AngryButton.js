@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 function AngryButton(){
   
-  const [anger, setAnger] = useState(0);
-  const handleClick = (amount)=> {
-    setAnger(anger < 1 ? anger + amount : 0);
-  };
+  const [anger, dispatch] = useReducer((anger, action) =>
+    anger < 1 ? anger + action : 0, 0
+  );
+
   return (
     <button 
       style={{ backgroundColor:`rgba(255,0,0,${anger})` }} 
-      onClick={()=>handleClick(0.1)}
+      onClick={()=>dispatch(0.1)}
       className="AngryButton"
     >
       {anger < 1 && <span>Don't click me too much! </span>}
